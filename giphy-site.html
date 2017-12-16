@@ -114,6 +114,7 @@
                 playerImage.attr("src", results[i].images.fixed_height_still.url);
                 // playerImage.attr("data-state") - review the pausing-gifs activity to create the img tags correctly
                 playerImage.attr("data-still", results[i].images.fixed_height_still.url);
+                playerImage.attr("data-animate", results[i].images.fixed_height.url);
                 playerImage.attr("data-state", "still");
                 playerImage.addClass("gif");
                 // append the ptag and image
@@ -127,6 +128,8 @@
 
     // animate gifs
     $(document).on("click", ".gif", function(){
+        var state = $(this).attr("data-state");
+        console.log(state);
         if (state == "still"){
             $(this).attr("src", $(this).data("animate"));
             $(this).attr("data-state", "animate");
